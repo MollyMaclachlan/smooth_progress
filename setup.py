@@ -11,9 +11,9 @@ setup(
     author="Murdo Maclachlan",
     author_email="murdomaclachlan@duck.com",
     description=(
-        "A very simple progress bar made primarily for my own personal use. Made from",
-        "a combination of necessity and so much sloth that it overflowed into",
-        "productivity."
+        "A very simple progress bar made primarily for my own personal use. Made from"
+        + " a combination of necessity and so much sloth that it overflowed into"
+        + " productivity."
     ),
     long_description=readme(),
     long_description_content_type="text/markdown",
