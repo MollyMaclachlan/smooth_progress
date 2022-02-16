@@ -13,7 +13,7 @@ class ProgressBar:
     def __exit__(self: object, t, val, tb):
         del self
 
-    def __init__(self: object, limit: int = 100, show_percent: bool = True) -> object:
+    def __init__(self: object, limit: int = 100, show_percent: bool = True):
         """
         :param limit: int, optional, default 100.
         :param show_percent: bool, optional, default True.
