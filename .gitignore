@@ -2,7 +2,7 @@
 .idea/*
 build/*
 dist/*
-simple_progress.egg-info/*
+smooth_progress.egg-info/*
 *.xml
 *.iml
 test.py
