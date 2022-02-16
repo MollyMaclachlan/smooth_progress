@@ -6,12 +6,12 @@ def readme():
 
 
 setup(
-    name="simple_progress",
+    name="smooth_progress",
     version="0.1.0",
     author="Murdo Maclachlan",
     author_email="murdomaclachlan@duck.com",
     description=(
-        "A very simple progress bar made primarily for my own personal use. Made from"
+        "A simple progress bar made primarily for my own personal use. Made from"
         + " a combination of necessity and so much sloth that it overflowed into"
         + " productivity."
     ),
