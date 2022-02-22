@@ -25,7 +25,7 @@ class ProgressBar:
         self.show_percent = show_percent
         self.state = None
 
-    def close(self: object) -> NoReturn:
+    def close(self: object) -> bool:
         """Closes the ProgressBar from mutability, displaying its final state before
         interruption.
 
@@ -35,6 +35,9 @@ class ProgressBar:
         if self.opened:
             print("\r" + self.state)
             self.opened = False
+            return True
+        else:
+            return False
 
     def increment(self: object) -> NoReturn:
         """Increments the progress and updates the display to reflect the new value. If
@@ -51,21 +54,29 @@ class ProgressBar:
         else:
             raise ProgressBarClosedError(".increment()")
 
-    def interrupt(self: object) -> NoReturn:
+    def interrupt(self: object) -> bool:
         """A more forceful version of close(); interrupts the ProgressBar by closing it
         from mutability, without displaying its final state.
         """
-        self.opened = False
+        if self.opened:
+            self.opened = False
+            print("", end="\r", flush=True)
+            return True
+        else:
+            return False
 
-    def open(self: object) -> NoReturn:
+    def open(self: object) -> bool:
         """Resets all progress and opens the ProgressBar to mutability, displaying its
         initial, empty state.
         """
-        if not self.opened:
+        if self.opened:
+            return False
+        else:
             self.count = 0
             self.state = f"[{'-'* self.GRANULARITY}]  0/{str(self.limit)}"
             print(self.state, end="\r", flush=True)
             self.opened = True
+            return True
 
     def __update(self: object, completion: int, percentage: int) -> NoReturn:
         """Hidden method to update the state of the bar with new values. Should only be
