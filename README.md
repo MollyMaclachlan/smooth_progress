@@ -28,7 +28,7 @@ Here is a simple example to show how the bar is initialised and used:
 ```
 import smooth_progress
 
-bar = simple_progress.ProgressBar(limit=100)
+bar = smooth_progress.ProgressBar(limit=100)
 bar.open()
 for i in range(0,100):
     bar.increment()
