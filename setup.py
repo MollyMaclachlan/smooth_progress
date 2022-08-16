@@ -7,7 +7,7 @@ def readme():
 
 setup(
     name="smooth_progress",
-    version="0.1.0-next",
+    version="0.2.0",
     author="Murdo Maclachlan",
     author_email="murdomaclachlan@duck.com",
     description=(
