@@ -6,7 +6,7 @@ class ProgressBar:
     this class. Once the project is more completed, attributes will be hidden and
     available through getter/setter method pairs.
     """
-    def __enter__(self: object) -> None:
+    def __enter__(self: object) -> object:
         return self
 
     def __exit__(self: object, t, val, tb) -> None:
