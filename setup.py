@@ -17,7 +17,7 @@ setup(
     ),
     long_description=readme(),
     long_description_content_type="text/markdown",
-    url="https://codeberg.org/MurdoMaclachlan/simple_progress",
+    url="https://codeberg.org/MurdoMaclachlan/smooth_progress",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

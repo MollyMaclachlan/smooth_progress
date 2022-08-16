@@ -3,7 +3,8 @@
 - Added `ProgressBar.show()` method, which displays the current state of the bar. (@MurdoMaclachlan)
 - `ProgressBar.close()`, `ProgressBar.interrupt()` and `ProgressBar.open()` now return a boolean value indicating if they had any effect. (@MurdoMaclachlan)
 - Functions with no return value now use `None` type hinting instead of `NoReturn`, as per the standard. (@MurdoMaclachlan)
-- Fixed a typo in the README (@MurdoMaclachlan)
+- Fixed a typo in the README. (@MurdoMaclachlan)
+- Fixed `setup.py` URL pointing to a nonexistent repository. (@MurdoMaclachlan)
 
 ### 0.1.0
 
