@@ -7,7 +7,7 @@ def readme():
 
 setup(
     name="smooth_progress",
-    version="0.1.0-next",
+    version="0.2.0",
     author="Murdo Maclachlan",
     author_email="murdomaclachlan@duck.com",
     description=(
@@ -17,7 +17,7 @@ setup(
     ),
     long_description=readme(),
     long_description_content_type="text/markdown",
-    url="https://codeberg.org/MurdoMaclachlan/simple_progress",
+    url="https://codeberg.org/MurdoMaclachlan/smooth_progress",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
