@@ -6,3 +6,4 @@ smooth_progress.egg-info/*
 *.xml
 *.iml
 test.py
+smooth_progress/__pycache__/

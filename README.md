@@ -25,7 +25,7 @@ In the near future, the plans are for `.close()` and `.open()` to be like pause 
 
 Here is a simple example to show how the bar is initialised and used:
 
-```
+```py
 import smooth_progress
 
 bar = smooth_progress.ProgressBar(limit=100)
