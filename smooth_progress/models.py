@@ -6,13 +6,13 @@ class ProgressBar:
     this class. Once the project is more completed, attributes will be hidden and
     available through getter/setter method pairs.
     """
-    def __enter__(self: object) -> object:
+    def __enter__(self):
         return self
 
-    def __exit__(self: object, t, val, tb) -> None:
+    def __exit__(self, t, val, tb) -> None:
         del self
 
-    def __init__(self: object, limit: int = 100, show_percent: bool = True) -> None:
+    def __init__(self, limit: int = 100, show_percent: bool = True) -> None:
         """
         :param limit: int, optional, default 100.
         :param show_percent: bool, optional, default True.
@@ -24,7 +24,7 @@ class ProgressBar:
         self.show_percent = show_percent
         self.state = None
 
-    def close(self: object) -> bool:
+    def close(self) -> bool:
         """Closes the ProgressBar from mutability, displaying its final state before
         interruption.
 
@@ -38,7 +38,7 @@ class ProgressBar:
         else:
             return False
 
-    def increment(self: object) -> None:
+    def increment(self) -> None:
         """Increments the progress and updates the display to reflect the new value. If
         this incrementation takes the progress to the pre-defined limit, closes the
         ProgressBar from mutability.
@@ -53,7 +53,7 @@ class ProgressBar:
         else:
             raise ProgressBarClosedError(".increment()")
 
-    def interrupt(self: object) -> bool:
+    def interrupt(self) -> bool:
         """A more forceful version of close(); interrupts the ProgressBar by closing it
         from mutability, without displaying its final state.
         """
@@ -64,7 +64,7 @@ class ProgressBar:
         else:
             return False
 
-    def open(self: object) -> bool:
+    def open(self) -> bool:
         """Resets all progress and opens the ProgressBar to mutability, displaying its
         initial, empty state.
         """
@@ -77,7 +77,7 @@ class ProgressBar:
             self.opened = True
             return True
 
-    def show(self: object, end: str = "\n") -> None:
+    def show(self, end: str = "\n") -> None:
         """Display the current state of the bar, with the end character determined by
         the call.
 
@@ -86,7 +86,7 @@ class ProgressBar:
         """
         print(self.state, end=end, flush=True)
 
-    def __update(self: object, completion: int, percentage: int) -> None:
+    def __update(self, completion: int, percentage: int) -> None:
         """Hidden method to update the state of the bar with new values. Should only be
         called from within the class itself.
 
