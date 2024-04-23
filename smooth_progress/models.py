@@ -25,6 +25,20 @@ class ProgressBar:
         self.show_percent = show_percent
         self.state = None
 
+    def __update(self, completion: int, percentage: int) -> None:
+        """
+        Hidden method to update the state of the bar with new values. Should only be called from
+        within the class itself.
+
+        :param completion: the number of characters in the bar that are completed
+        :param percentage: the percentage of characters in the bar that are completed
+        """
+        self.state = (
+            f"[{'#' * completion}{'-' * (self.GRANULARITY - completion)}]"
+            + f"  {str(self.count)}/{str(self.limit)}"
+            + (f" [{percentage}%]" if self.show_percent else "")
+        )
+
     def close(self) -> bool:
         """
         Closes the ProgressBar from mutability, displaying its final state before interruption.
@@ -93,17 +107,3 @@ class ProgressBar:
         :param flush: whether to forcibly flush the stdout stream
         """
         print(self.state if display is None else display, end=end, flush=flush)
-
-    def __update(self, completion: int, percentage: int) -> None:
-        """
-        Hidden method to update the state of the bar with new values. Should only be called from
-        within the class itself.
-
-        :param completion: the number of characters in the bar that are completed
-        :param percentage: the percentage of characters in the bar that are completed
-        """
-        self.state = (
-            f"[{'#' * completion}{'-' * (self.GRANULARITY - completion)}]"
-            + f"  {str(self.count)}/{str(self.limit)}"
-            + (f" [{percentage}%]" if self.show_percent else "")
-        )
