@@ -41,13 +41,11 @@ class ProgressBar:
 
     def close(self) -> bool:
         """
-        Closes the ProgressBar from mutability, displaying its final state before interruption.
+        Closes the ProgressBar from mutability, displaying its state before closure.
 
-        Note that a carriage return is executed BEFORE the final display; this ensures console
-        outputs such as ^C from a Control+C SIGKILL will be overwritten.
+        :return: a status indicating whether the bar was previously open
         """
         if self.opened:
-            self.show(display = "\r" + self.state, end = "\n", flush = False)
             self.opened = False
             return True
         else:
@@ -69,31 +67,50 @@ class ProgressBar:
         else:
             raise ProgressBarClosedError(".increment()")
 
-    def interrupt(self) -> bool:
+    def interrupt(self, show_final = True) -> bool:
         """
-        A more forceful version of close(); interrupts the ProgressBar by closing it from
-        mutability, without displaying its final state.
+        Interrupts the ProgressBar by closing it from mutability and resets its progress.
+
+        :param show_final: optional; whether to show the final state of the bar before its
+                           interuption
+        :return: a status indicating whether the bar was previously open
         """
         if self.opened:
             self.opened = False
-            self.show(display="")
+
+            if show_final:
+                # carriage return ensures console outputs such as ^C from a Control+C SIGKILL
+                # are overwritten
+                self.show(display = "\r" + self.state, end = "\n", flush = False)
+            else:
+                self.show(display = "")
+
+            self.reset()
             return True
         else:
             return False
 
     def open(self) -> bool:
         """
-        Resets all progress and opens the ProgressBar to mutability, displaying its initial, empty
-        state.
+        Opens the ProgressBar to mutability.
+
+        :return: a status indicating whether the bar was previously closed
         """
         if self.opened:
             return False
         else:
-            self.count = 0
-            self.__update(0, 0)
-            self.show()
             self.opened = True
             return True
+
+    def reset(self, show = False) -> None:
+        """
+        Resets the progress of the ProgressBar.
+
+        :param show: optional; whether to display the initial empty bar
+        """
+        self.count = 0
+        self.__update(0, 0)
+        self.show()
 
     def show(self, display: str = None, end: str = "\r", flush: bool = True) -> None:
         """
