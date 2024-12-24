@@ -1,3 +1,9 @@
+### Unreleased
+
+**Documentation**
+
+- Added type hinting to the README code examples.
+
 ### 0.2.0
 
 **New**
