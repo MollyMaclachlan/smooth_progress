@@ -8,7 +8,7 @@ def readme():
 setup(
     name="smooth_progress",
     version="0.2.0",
-    author="Murdo Maclachlan",
+    author="Molly Maclachlan",
     author_email="murdomaclachlan@duck.com",
     description=(
         "A simple progress bar made primarily for my own personal use. Made from"
@@ -17,7 +17,7 @@ setup(
     ),
     long_description=readme(),
     long_description_content_type="text/markdown",
-    url="https://codeberg.org/MurdoMaclachlan/smooth_progress",
+    url="https://github.com/MollyMaclachlan/smooth_progress",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
