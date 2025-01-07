@@ -41,4 +41,4 @@ smooth_progress currently also defines one exception, `smooth_progress.exception
 
 ## Contributing
 
-See [the contribution guide](https://codeberg.org/MurdoMaclachlan/smooth_progress/wiki/Contribution-Guide).
+I'm always happy to accept feature requests, bug reports, and any pull requests to improve the project. If you want to contribute, please explain clearly what your request or issue is so that I can provide solutions as swiftly as possible.
